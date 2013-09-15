@@ -1,2 +1,31 @@
-connect-cassandra-cql
-=====================
+# connect-cassandra-cql
+Session store for connect using Cassandra CQL3 binary protocol.
+
+## Installation
+```
+npm install connect-cassandra-cql
+```
+
+## Usage
+```javascript
+var express = require('express'),
+    CassandraCqlStore = require('connect-cassandra-cql')(express),
+    Client = require('node-cassandra-cql').Client;
+
+var client = new Client({hosts: ['localhost'], keyspace: 'myKeyspace'});
+var config = {client: client};
+
+var app = express();
+app.use(express.cookieParser());
+app.use(express.session({secret: 'keyboard-cat', store: new CassandraCqlStore(config)));
+```
+config is an object with these keys:
+```
+client: node-cassandra-cql object. mandatory.
+ttl: how long, in seconds, to save the session. if the session cookie have maxAge, it will be used, otherwise, 86400 (one day).
+table: the table name to use. defaults to 'connect_session'.
+```
+
+## License
+
+connect-cassandra-cql is distributed under the [MIT license](http://opensource.org/licenses/MIT).
