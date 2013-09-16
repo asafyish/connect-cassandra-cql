@@ -30,4 +30,4 @@ writeConsistency: cassandra write consistency, defaults to any.
 
 ## License
 
-connect-cassandra-cql is distributed under the [MIT license](http://opensource.org/licenses/MIT).
+connect-cassandra-cql is distributed under the [MIT license](https://raw.github.com/asafyish/connect-cassandra-cql/master/LICENSE).
