@@ -1,7 +1,7 @@
 {
     "name": "connect-cassandra-cql",
     "description": "Session store for connect using Cassandra CQL3 binary protocol",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "licenses": [
         {
             "type": "MIT",

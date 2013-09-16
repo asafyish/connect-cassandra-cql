@@ -24,6 +24,8 @@ config is an object with these keys:
 client: node-cassandra-cql object. mandatory.
 ttl: how long, in seconds, to save the session. if the session cookie have maxAge, it will be used, otherwise, 86400 (one day).
 table: the table name to use. defaults to 'connect_session'.
+readConsistency: cassandra read consistency, defaults to 1.
+writeConsistency: cassandra write consistency, defaults to any.
 ```
 
 ## License
