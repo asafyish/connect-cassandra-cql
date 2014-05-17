@@ -7,6 +7,23 @@ npm install connect-cassandra-cql
 ```
 
 ## Usage
+Express 4
+```javascript
+var express = require('express'),
+    cookieParser = require('cookie-parser'),
+    session = require('express-session'),
+    CassandraCqlStore = require('connect-cassandra-cql')(session),
+    Client = require('node-cassandra-cql').Client;
+
+var client = new Client({hosts: ['localhost'], keyspace: 'myKeyspace'});
+var config = {client: client};
+
+var app = express();
+app.use(cookieParser());
+app.use(session({secret: 'keyboard-cat', store: new CassandraCqlStore(config)));
+```
+
+Express 3
 ```javascript
 var express = require('express'),
     CassandraCqlStore = require('connect-cassandra-cql')(express),
