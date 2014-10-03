@@ -20,7 +20,12 @@ var config = {client: client};
 
 var app = express();
 app.use(cookieParser());
-app.use(session({secret: 'keyboard-cat', store: new CassandraCqlStore(config)));
+app.use(session({
+    secret: 'keyboard-cat',
+    store: new CassandraCqlStore(config),
+    resave: true,
+    saveUninitialized: true
+}));
 ```
 
 Express 3
@@ -34,7 +39,12 @@ var config = {client: client};
 
 var app = express();
 app.use(express.cookieParser());
-app.use(express.session({secret: 'keyboard-cat', store: new CassandraCqlStore(config)));
+app.use(session({
+    secret: 'keyboard-cat',
+    store: new CassandraCqlStore(config),
+    resave: true,
+    saveUninitialized: true
+}));
 ```
 config is an object with these keys:
 ```
